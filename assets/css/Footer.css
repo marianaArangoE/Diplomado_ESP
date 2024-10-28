@@ -1,0 +1,96 @@
+/* Estilos del pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center; /* Alinea el logo y el contenido verticalmente */
+    justify-content: space-between; /* Espacio entre el logo y las secciones */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    margin-right: auto; /* Asegura que el logo se alinee a la izquierda */
+    margin-left: -20px; /* Ajusta este valor según sea necesario */
+}
+
+.footer-logo img {
+    max-width: 100px; /* Ajusta el tamaño del logo */
+    height: auto; /* Mantiene la proporción */
+}
+
+
+.footer-section {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.footer-section h3 {
+    margin-bottom: 20px;
+}
+
+.footer-section h3 a {
+    color: #fff; /* Color de texto sin subrayado */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.footer-section h3 a:hover {
+    text-decoration: underline; /* Subrayar al pasar el mouse */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #555;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-wrap: wrap; /* Permitir que el contenido se ajuste en pantallas más pequeñas */
+    }
+
+    .footer-section {
+        flex-basis: 50%;
+        margin-bottom: 20px;
+    }
+
+    .footer-logo {
+        flex-basis: 100%; /* Hacer que el logo ocupe todo el ancho en pantallas pequeñas */
+        text-align: center; /* Centrar el logo */
+        margin-bottom: 20px; /* Espacio inferior */
+    }
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .services {
+        flex-wrap: wrap;
+    }
+
+    .service {
+        flex-basis: 50%;
+    }
+
+    .footer-content {
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        flex-basis: 50%;
+        margin-bottom: 20px;
+    }
+}

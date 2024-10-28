@@ -230,7 +230,7 @@ nav ul li a {
     margin-bottom: 10px;
 }
 
-/* Estilos del pie de página */
+/* Estilos del pie de página
 footer {
     background-color: #333;
     color: #fff;
@@ -291,7 +291,7 @@ footer {
     margin-top: 40px;
     padding-top: 20px;
     border-top: 1px solid #555;
-}
+} */
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
