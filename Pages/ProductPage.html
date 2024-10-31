@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SQUARE1 ACADEMY - Denim Jacket</title>
     <link rel="stylesheet" href="/assets/css/ProductPage.css">
+
 </head>
 
 <body>
     <header>
         <div class="logo">
-            <a href="/index.html">
-                <img src="/assets/img/LogoVector.svg" alt="SQUARE1 ACADEMY Logo">
-            </a>
+            <img src="/assets/img/LogoVector.svg" alt="SQUARE1 ACADEMY Logo">
         </div>
         <nav>
             <ul>
@@ -67,28 +66,36 @@
                     <span id="hours">00</span>:<span id="minutes">05</span>:<span id="seconds">59</span>
                 </div>
             </div>
-            <p class="stock-info">Only 9 item(s) left in stock!</p>
+            <div class="stock-info">
+                <p>Only <strong>9</strong> item(s) left in stock!</p>
+                <div class="stock-bar">
+                    <div class="stock-level" style="width: 40%;"></div>
+                    <!-- Cambia el ancho según la cantidad en stock -->
+                </div>
+            </div>
+
             <div class="product-options">
                 <div class="size-selection">
-                    <p>Size: M</p>
+                    <p>Size:</p>
                     <div class="size-buttons">
-                        <button class="selected">M</button>
-                        <button>L</button>
-                        <button>XL</button>
-                        <button>XXL</button>
+                        <button class="size-button selected">M</button>
+                        <button class="size-button">L</button>
+                        <button class="size-button">XL</button>
+                        <button class="size-button">XXL</button>
                     </div>
                 </div>
+
                 <div class="color-selection">
-                    <p>Color: Blue</p>
+                    <p>Color:</p>
                     <div class="color-buttons">
-                        <button class="selected" style="background-color: lightblue;"></button>
-                        <button style="background-color: black;"></button>
-                        <button style="background-color: pink;"></button>
+                        <button class="color-button selected" style="background-color: lightblue;"></button>
+                        <button class="color-button" style="background-color: black;"></button>
+                        <button class="color-button" style="background-color: pink;"></button>
                     </div>
                 </div>
             </div>
             <div class="quantity-selection">
-                <p>Quantity</p>
+                <p>Quantity:</p>
                 <div class="quantity-input">
                     <button class="decrease">-</button>
                     <input type="number" value="1" min="1">
@@ -112,6 +119,7 @@
                 </div>
             </div>
         </div>
+
 
         <!-- Shopping Cart -->
         <div class="shopping-cart" id="shoppingCart">
@@ -141,31 +149,53 @@
                 <span>Subtotal</span>
                 <span>$100.00</span>
             </div>
-            <button class="checkout-button"><a href="#"></a>Checkout</button>
-            <a href="ShoppingCart.html" class="view-cart-link">View Cart</a>
+            <button class="checkout-button">
+                <a class="view-checkout"href="checkout.html">Checkout</a>
+            </button>
+            <a href="cartPage.html" class="view-cart-link">View Cart</a>
         </div>
+
     </main>
+
+
+
+    <script>
+        // Temporizador de cuenta regresiva
+        const countdown = () => {
+            const endDate = new Date(Date.now() + 5 * 60 * 1000); // 5 minutos de cuenta regresiva
+
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = endDate - now;
+
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+                document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.querySelector('.sale-countdown').innerHTML = "¡La oferta ha terminado!";
+                }
+            }, 1000);
+        }
+
+        countdown();
+
+        // New script for shopping cart functionality
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function () {
+                document.getElementById('shoppingCart').classList.add('open');
+            });
+        });
+
+        document.querySelector('.close-cart').addEventListener('click', function () {
+            document.getElementById('shoppingCart').classList.remove('open');
+        });
+    </script>
 </body>
-
-<script>
-    // Existing color selection script
-    document.querySelectorAll('.color-options span[data-selectable]').forEach(span => {
-        span.addEventListener('click', function () {
-            this.closest('.color-options').querySelectorAll('span').forEach(s => s.classList.remove('selected'));
-            this.classList.add('selected');
-        });
-    });
-
-    // New script for shopping cart functionality
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', function () {
-            document.getElementById('shoppingCart').classList.add('open');
-        });
-    });
-
-    document.querySelector('.close-cart').addEventListener('click', function () {
-        document.getElementById('shoppingCart').classList.remove('open');
-    });
-</script>
 
 </html>

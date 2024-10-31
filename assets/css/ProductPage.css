@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -11,7 +12,7 @@ header {
     align-items: center;
     padding: 20px;
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo img {
@@ -50,45 +51,73 @@ nav ul li a {
     padding: 40px;
     background-color: #fff;
     margin: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .product-images {
-    flex: 1;
-    margin-right: 40px;
+    display: flex;
+    align-items: flex-start; /* Alinea la parte superior para que la imagen y las miniaturas estén alineadas */
+    justify-content: flex-start; /* Alinea horizontalmente el contenido al inicio */
+    margin-right: 20px; /* Espacio entre imágenes y la información del producto */
+    flex: 1; /* Permite que el contenedor ocupe el espacio restante */
 }
 
 .main-image img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Mantiene la imagen dentro del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: contain; /* Asegura que la imagen se mantenga dentro del contenedor */
 }
+.main-image {
+    flex: 2; /* Permite que la imagen principal ocupe más espacio */
+    display: flex; /* Habilita flexbox para centrar la imagen */
+    justify-content: center; /* Centra la imagen dentro del contenedor */
+    max-width: 600px; /* Ajusta el ancho máximo de la imagen principal */
+}
+/* Ajustes para asegurar el orden visual correcto */
 
 .thumbnail-images {
     display: flex;
-    flex-direction: column;
-    margin-top: 20px;
+    flex-direction: column; /* Mantiene las mini imágenes en columna */
+    margin-right: 10px; /* Espaciado reducido entre mini imágenes y la imagen principal */
+    align-items: flex-start; /* Alinea las mini imágenes a la izquierda */
+}
+
+
+.main-image {
+    order: 1; /* La imagen principal debe aparecer después */
 }
 
 .thumbnail-images img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    margin-bottom: 10px;
+    width: 120px; /* Mantiene el tamaño de las mini imágenes */
+    height: 122.5px; /* Asegura que las mini imágenes mantengan su proporción */
+    object-fit: cover; /* Asegura que las mini imágenes mantengan la proporción */
+    margin-bottom: 10px; /* Espaciado entre las mini imágenes */
     cursor: pointer;
+    border: 2px solid transparent; /* Borde inicial transparente */
+    transition: border-color 0.3s ease; /* Transición suave para el borde */
+}
+.thumbnail-images img:hover {
+    border-color: #333; /* Borde al pasar el mouse */
 }
 
 .product-info {
-    flex: 1;
+    padding: 20px; /* Espaciado interno */
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-bottom: 20px; /* Margen inferior */
+    flex: 1.5; /* Aumenta el ancho del contenedor de información */
 }
 
 .brand {
-    color: #888;
-    margin-bottom: 10px;
+    color: #888; /* Color gris para la marca */
+    margin-bottom: 10px; /* Margen inferior */
 }
 
 .product-title {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 24px; /* Tamaño del título */
+    margin-bottom: 10px; /* Margen inferior */
+    font-weight: bold; /* Negrita para el título del producto */
 }
 
 .product-rating {
@@ -96,112 +125,199 @@ nav ul li a {
 }
 
 .stars {
-    color: #ffc107;
+    color: #000; /* Color para las estrellas */
 }
 
 .product-price {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Margen inferior para el precio */
 }
 
 .current-price {
-    font-size: 24px;
-    font-weight: bold;
-    margin-right: 10px;
+    font-size: 24px; /* Tamaño de fuente para el precio actual */
+    font-weight: bold; /* Negrita para el precio actual */
+    margin-right: 10px; /* Espacio a la derecha */
 }
 
 .original-price {
-    text-decoration: line-through;
-    color: #888;
+    text-decoration: line-through; /* Tachar el precio original */
+    color: #888; /* Color gris para el precio original */
 }
 
 .discount {
-    color: #e53935;
-    font-weight: bold;
+    color: white; /* Color blanco para el texto de descuento */
+    background-color: #e53935; /* Fondo rojo para el descuento */
+    font-weight: bold; /* Negrita para el descuento */
+    padding: 5px 10px; /* Espaciado interno para el fondo */
+    border-radius: 12px; /* Bordes redondeados */
+    display: inline-block; /* Asegura que el fondo se ajuste al tamaño del texto */
 }
 
 .viewers {
-    color: #4caf50;
-    margin-bottom: 10px;
+    color: #4caf50; /* Color verde para el texto de visualización */
+    margin-bottom: 10px; /* Margen inferior */
 }
 
 .sale-countdown {
-    background-color: #ffebee;
-    padding: 10px;
-    margin-bottom: 20px;
+    background-color: #ffebee; /* Fondo claro para la cuenta regresiva */
+    padding: 15px; /* Espaciado interno */
+    margin-bottom: 20px; /* Margen inferior */
+    border-radius: 8px; /* Bordes redondeados */
+    border: 1px solid rgba(255, 0, 0, 0.2); /* Borde claro */
+    display: flex; /* Para alinear texto y temporizador en fila */
+    justify-content: space-between; /* Espacio entre el texto y el temporizador */
+    color: #e53935; /* Color rojo para el texto */
 }
 
 .timer {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 24px; /* Tamaño de fuente más grande para el temporizador */
+    font-weight: bold; /* Negrita para el temporizador */
+    color: #e53935; /* Color rojo para los números del temporizador */
 }
 
 .stock-info {
-    color: #e53935;
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+.stock-bar {
+    background-color: #e0e0e0; /* Fondo gris para la barra */
+    border-radius: 5px; /* Bordes redondeados para la barra */
+    height: 8px; /* Altura de la barra */
+    overflow: hidden; /* Asegura que el contenido no sobresalga */
+}
+
+.stock-level {
+    background-color: #e53935; /* Color rojo para el nivel de stock */
+    height: 100%; /* Asegura que el nivel de stock ocupe toda la altura de la barra */
+    transition: width 0.3s ease; /* Transición suave al cambiar el ancho */
 }
 
 .product-options {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Margen inferior general para la sección */
+}
+.size-selection,
+.color-selection,
+.quantity-selection {
+    margin-bottom: 15px; /* Espacio entre secciones */
+    display: flex; /* Alinea el título y los botones en fila */
+    flex-direction: column; /* Mantiene el título encima de los botones */
+    align-items: flex-start; /* Alinea el contenido a la izquierda */
 }
 
-.size-selection, .color-selection {
-    margin-bottom: 10px;
-}
-
-.size-buttons, .color-buttons {
+.size-selection {
     display: flex;
-    gap: 10px;
+
+    margin-bottom: 15px; /* Espacio entre secciones */
+}
+.size-buttons {
+    display: flex;
+    gap: 10px; /* Espacio entre botones */
+}
+.size-button {
+    padding: 10px 15px; /* Espaciado interno */
+    border: 2px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: white; /* Fondo blanco */
+    color: #333; /* Color del texto */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s, border-color 0.3s; /* Transiciones suaves */
 }
 
-.size-buttons button, .color-buttons button {
-    width: 40px;
-    height: 40px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    cursor: pointer;
+.size-button:hover {
+    background-color: #e0e0e0; /* Fondo gris claro al pasar el mouse */
 }
 
-.color-buttons button {
+.size-button.selected {
+    background-color: black; /* Fondo negro para el botón seleccionado */
+    color: white; /* Texto blanco para el botón seleccionado */
+    border-color: black; /* Mantiene el borde negro */
+}
+
+.color-selection {
+    display: flex;
+    margin-bottom: 15px; /* Espacio entre secciones */
+}
+.color-buttons {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones de color */
+}
+
+.color-button {
+    width: 30px; /* Ancho de cada botón de color */
+    height: 30px; /* Alto de cada botón de color */
+    border: 2px solid #ccc; /* Borde gris claro */
+    border-radius: 50%; /* Botones redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: border-color 0.3s; /* Transición suave para el borde */
+}
+.color-button.selected {
+    border-color: #FF4500; /* Color de borde para el color seleccionado */
+}
+.color-options {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.color-options span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc; /* Borde gris claro */
     border-radius: 50%;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s;
 }
 
-.size-buttons button.selected, .color-buttons button.selected {
-    border: 2px solid #333;
+.color-options span.selected {
+    border-color: #FF4500; /* Color de borde para el color seleccionado */
 }
 
 .quantity-selection {
     display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+
+
 }
 
 .quantity-input {
     display: flex;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 10px; /* Espacio entre los botones y el campo de entrada */
+    border: 2px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    overflow: hidden; /* Asegura que el contenido no sobresalga */
 }
 
 .quantity-input button {
-    width: 30px;
-    height: 30px;
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-    cursor: pointer;
+    background: none; /* Sin fondo para los botones */
+    border: none; /* Sin borde para los botones */
+    color: #333; /* Color del texto */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    padding: 10px; /* Espaciado interno */
 }
-
 .quantity-input input {
-    width: 50px;
-    height: 30px;
-    text-align: center;
-    border: 1px solid #ddd;
+    width: 40px; /* Ancho del campo de entrada */
+    height: 40px; /* Alto del campo de entrada */
+    text-align: center; /* Centrar el texto */
+    border: none; /* Sin borde */
+    font-size: 18px; /* Tamaño de fuente mayor */
+    color: #333; /* Color del texto */
+    outline: none; /* Sin contorno al seleccionar */
 }
 
 .add-to-cart {
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+    padding: 10px 20px; /* Espaciado interno */
+    background-color: transparent; /* Fondo transparente */
+    color: #333; /* Color del texto */
+    border: 2px solid #333; /* Borde negro */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s; /* Transición suave */
+    font-size: 18px; /* Tamaño de fuente */
+}
+
+.add-to-cart:hover {
+    background-color: #e0e0e0; /* Fondo gris claro al pasar el mouse */
 }
 
 .product-actions {
@@ -271,54 +387,6 @@ nav ul li a {
         margin-bottom: 0;
     }
 }
-.product-page {
-    display: flex;
-    padding: 40px;
-    background-color: #fff;
-    margin: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.product-images {
-    flex: 1;
-    margin-right: 40px;
-    display: flex;
-    gap: 20px;
-}
-
-.main-image {
-    flex: 1;
-}
-
-.main-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.thumbnail-images {
-
-    gap: 10px;
-    width: 80px;
-}
-
-.thumbnail-images img {
-    width: 100%;
-    height: 80px;
-    object-fit: cover;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: border-color 0.3s ease;
-}
-
-.thumbnail-images img:hover {
-    border-color: #333;
-}
-
-
-
-
-/* Existing styles remain unchanged */
 
 /* Shopping Cart Styles */
 .shopping-cart {
@@ -393,7 +461,6 @@ nav ul li a {
 .cart-item-price {
     font-weight: bold;
 }
-
 .quantity-selector {
     display: flex;
     align-items: center;
@@ -445,4 +512,9 @@ nav ul li a {
     color: #666;
     text-decoration: none;
 }
-
+.view-checkout {
+    display: block;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}

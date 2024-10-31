@@ -1,7 +1,7 @@
 /* Estilos del pie de página */
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #fff; /* Cambiar a blanco */
+    color: #333; /* Cambiar el color del texto a gris oscuro para mayor contraste */
     padding: 40px 0;
 }
 
@@ -23,7 +23,6 @@ footer {
     height: auto; /* Mantiene la proporción */
 }
 
-
 .footer-section {
     flex: 1;
     margin: 0 20px;
@@ -34,7 +33,7 @@ footer {
 }
 
 .footer-section h3 a {
-    color: #fff; /* Color de texto sin subrayado */
+    color: #333; /* Cambiar el color del enlace a gris oscuro */
     text-decoration: none; /* Sin subrayado */
 }
 
@@ -46,7 +45,7 @@ footer {
     text-align: center;
     margin-top: 40px;
     padding-top: 20px;
-    border-top: 1px solid #555;
+    border-top: 1px solid #ddd; /* Cambiar el borde a un gris más claro */
 }
 
 /* Estilos responsivos */
@@ -64,33 +63,5 @@ footer {
         flex-basis: 100%; /* Hacer que el logo ocupe todo el ancho en pantallas pequeñas */
         text-align: center; /* Centrar el logo */
         margin-bottom: 20px; /* Espacio inferior */
-    }
-}
-
-/* Estilos responsivos */
-@media (max-width: 768px) {
-    nav ul {
-        display: none;
-    }
-
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .services {
-        flex-wrap: wrap;
-    }
-
-    .service {
-        flex-basis: 50%;
-    }
-
-    .footer-content {
-        flex-wrap: wrap;
-    }
-
-    .footer-section {
-        flex-basis: 50%;
-        margin-bottom: 20px;
     }
 }
